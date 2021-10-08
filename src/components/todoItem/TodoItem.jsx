@@ -1,11 +1,12 @@
 import React from 'react'
+import './TodoItem.css'
 
 const TodoItem = ({ text }) => {
   return (
-    <li>
-      <span>c</span>
+    <li className='Item'>
+      <span className='Item__button Item__button--check'>c</span>
       <p>{text}</p>
-      <span>x</span>
+      <span className='Item__button Item__button--close'>x</span>
     </li>
   )
 }

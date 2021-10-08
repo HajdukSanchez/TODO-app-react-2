@@ -1,9 +1,10 @@
 import React from 'react'
+import './TodoList.css'
 
 const TodoList = ({ children }) => {
   return (
-    <section>
-      <ul>{children}</ul>
+    <section className='Container-list'>
+      <ul className='Container-list__menu'>{children}</ul>
     </section>
   )
 }

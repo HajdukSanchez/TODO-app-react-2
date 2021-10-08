@@ -1,0 +1,22 @@
+.Item {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 10px;
+  border-radius: 10px;
+  box-shadow: 3px 2px 21px -10px rgba(0, 0, 0, 0.75);
+}
+
+.Item__button--check {
+  margin-right: 2rem;
+  margin-left: 1rem;
+}
+
+.Item__button--close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+}

@@ -1,0 +1,10 @@
+.Container-list {
+  margin-bottom: 3rem;
+  width: 90%;
+}
+
+.Container-list__menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
