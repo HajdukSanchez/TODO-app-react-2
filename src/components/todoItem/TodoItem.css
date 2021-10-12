@@ -7,10 +7,17 @@
   border-radius: 10px;
   box-shadow: 3px 2px 21px -10px rgba(0, 0, 0, 0.75);
 }
+.Item.completed {
+  filter: grayscale(1);
+}
+
 .Item__description {
   width: 80%;
   text-align: left;
   overflow-wrap: anywhere;
+}
+.Item.completed .Item__description {
+  text-decoration: line-through;
 }
 
 .Item__button {

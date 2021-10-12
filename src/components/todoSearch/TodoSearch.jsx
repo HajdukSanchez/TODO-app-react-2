@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TodoSearch.css'
 
 const TodoSearch = () => {
+  const [searchValue, setSearchValue] = useState('')
+
   const handleValueChange = (event) => {
-    console.log(event.target.value)
+    setSearchValue(event.target.value)
   }
 
-  return <input className='Search' type='text' placeholder='Search your TODO' onChange={handleValueChange} />
+  return <input className='Search' type='text' placeholder='Search your TODO' value={searchValue} onChange={handleValueChange} />
 }
 
 export { TodoSearch }

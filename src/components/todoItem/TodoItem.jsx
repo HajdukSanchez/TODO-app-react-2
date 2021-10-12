@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './TodoItem.css'
 import { IoCheckmarkSharp, IoCloseSharp } from 'react-icons/io5'
 
 const TodoItem = ({ text }) => {
+  const [isCompleted, setIsCompleted] = useState(false)
+
   const handleComplete = () => {
-    console.log('Completed')
+    setIsCompleted(!isCompleted)
   }
 
   const handleDelete = () => {
@@ -12,7 +14,7 @@ const TodoItem = ({ text }) => {
   }
 
   return (
-    <li className='Item'>
+    <li className={`Item ${isCompleted && 'completed'}`}>
       <div className='Item__button Item__button--check' onClick={handleComplete}>
         <IoCheckmarkSharp />
       </div>
