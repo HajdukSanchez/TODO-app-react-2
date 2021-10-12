@@ -1,22 +1,45 @@
 .Item {
-  position: relative;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
   padding: 0 10px;
   border-radius: 10px;
   box-shadow: 3px 2px 21px -10px rgba(0, 0, 0, 0.75);
 }
+.Item__description {
+  width: 80%;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
 
+.Item__button {
+  padding: 0.1rem 0.2rem;
+  border-radius: 100%;
+  border: 1px solid black;
+  cursor: pointer;
+  background-color: transparent;
+  transition: 0.5s;
+}
 .Item__button--check {
   margin-right: 2rem;
   margin-left: 1rem;
+  border-color: #30eb0a;
 }
-
+.Item__button--check:hover {
+  background-color: #b4e7aaa1;
+}
+.Item__button--check svg {
+  color: #30eb0a;
+}
 .Item__button--close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 5px;
+  margin-left: 2rem;
+  margin-right: 1rem;
+  border-color: #eb0a0a;
+}
+.Item__button--close:hover {
+  background-color: #f3b8b8;
+}
+.Item__button--close svg {
+  fill: #eb0a0a;
 }

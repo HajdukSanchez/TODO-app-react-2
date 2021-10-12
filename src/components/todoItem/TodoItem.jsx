@@ -1,12 +1,25 @@
 import React from 'react'
 import './TodoItem.css'
+import { IoCheckmarkSharp, IoCloseSharp } from 'react-icons/io5'
 
 const TodoItem = ({ text }) => {
+  const handleComplete = () => {
+    console.log('Completed')
+  }
+
+  const handleDelete = () => {
+    console.log('Deleted TODO')
+  }
+
   return (
     <li className='Item'>
-      <span className='Item__button Item__button--check'>c</span>
-      <p>{text}</p>
-      <span className='Item__button Item__button--close'>x</span>
+      <div className='Item__button Item__button--check' onClick={handleComplete}>
+        <IoCheckmarkSharp />
+      </div>
+      <p className='Item__description'>{text}</p>
+      <div className='Item__button Item__button--close' onClick={handleDelete}>
+        <IoCloseSharp />
+      </div>
     </li>
   )
 }
