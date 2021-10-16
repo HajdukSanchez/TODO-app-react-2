@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-// import './App.css';
 import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton } from './components'
 
 const defaultTodos = [
@@ -24,7 +23,7 @@ function App() {
   const handleCompleted = (id) => {
     const todoIndex = todos.findIndex((todo) => todo.id === id)
     const newTodos = [...todos]
-    newTodos(([todoIndex].completed = !newTodos[todoIndex].completed))
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed
     setTodos(newTodos)
   }
 
