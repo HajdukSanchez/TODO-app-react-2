@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Message, TodoContext } from './components'
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Message, TodoContext, Modal } from './components'
 
 function App() {
-  const { error, loading, searchedTodos, handleCompleted, handleDelete } = useContext(TodoContext)
+  const { error, loading, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal } = useContext(TodoContext)
 
   return (
     <>
@@ -16,6 +16,7 @@ function App() {
           <TodoItem key={todo.id} text={todo.text} completed={todo.completed} handleComplete={() => handleCompleted(todo.id)} handleDelete={() => handleDelete(todo.id)} />
         ))}
       </TodoList>
+      {!!openModal && <Modal></Modal>}
       <CreateTodoButton />
     </>
   )

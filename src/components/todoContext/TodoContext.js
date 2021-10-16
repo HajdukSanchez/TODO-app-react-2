@@ -7,6 +7,7 @@ const TodoContext = createContext() // * For create a context
 function TodoProvider({ children }) {
   const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage(TODO_VERSION, []) // * Custom Hook
   const [searchValue, setSearchValue] = useState('')
+  const [openModal, setOpenModal] = useState(false)
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length // * Shortcut for conditional true
   const totalTodos = todos.length
@@ -34,7 +35,8 @@ function TodoProvider({ children }) {
 
   // * The values are the states that we want to share in our application
   return (
-    <TodoContext.Provider value={{ loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete }}>
+    <TodoContext.Provider
+      value={{ loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal }}>
       {children}
     </TodoContext.Provider>
   )

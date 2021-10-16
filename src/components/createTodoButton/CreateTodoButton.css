@@ -3,21 +3,28 @@
   justify-content: center;
   align-items: center;
   align-self: flex-end;
-  padding: 10px 30px;
+  padding: 10px;
   font-family: sans-serif;
   color: white;
   background-color: #6178ff;
   border: 1px solid #0024ff;
-  border-radius: 6px;
+  border-radius: 100%;
   box-shadow: 3px 2px 21px -10px rgb(0 0 0 / 75%);
   cursor: pointer;
-  transition: color 0.3s;
+  transition: 0.5s;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  z-index: 1;
 }
-.CreateTodoButton:hover {
-  color: rgb(5, 5, 143);
+.CreateTodoButton.Close {
+  background-color: #ff6161;
+  border-color: #ff0000;
 }
 
 .CreateTodoButton svg {
-  margin-left: 10px;
+  transform: rotate(0);
+  transition: 0.3s;
+}
+.CreateTodoButton.Close svg {
+  transform: rotate(45deg);
 }
