@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton } from './components'
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Message } from './components'
 import { useLocalStorage } from './lib/useLocalStorage'
 
 // const defaultTodos = [
@@ -12,7 +12,7 @@ import { useLocalStorage } from './lib/useLocalStorage'
 const TODO_VERSION = 'TODOS_V1'
 
 function App() {
-  const [todos, saveTodos] = useLocalStorage(TODO_VERSION, []) // * Custom Hook
+  const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage(TODO_VERSION, []) // * Custom Hook
   const [searchValue, setSearchValue] = useState('')
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length // * Shortcut for conditional true
@@ -44,6 +44,9 @@ function App() {
       <TodoCounter total={totalTodos} completed={completedTodos} />
       <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       <TodoList>
+        {error && <Message text={'An error occurred'} />}
+        {loading && <Message text={'Loading...'} />}
+        {!loading && !searchedTodos.length && <Message text={'Create your first TODO !'} />}
         {searchedTodos.map((todo) => (
           <TodoItem key={todo.id} text={todo.text} completed={todo.completed} handleComplete={() => handleCompleted(todo.id)} handleDelete={() => handleDelete(todo.id)} />
         ))}
