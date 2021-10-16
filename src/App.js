@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton } from './components'
+import { useLocalStorage } from './lib/useLocalStorage'
 
 // const defaultTodos = [
 //   { id: 1, text: 'Create New Todo', completed: false },
@@ -11,16 +12,7 @@ import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton } from '.
 const TODO_VERSION = 'TODOS_V1'
 
 function App() {
-  const localStorageTodos = localStorage.getItem(TODO_VERSION)
-  let parsedTodos
-  if (!localStorageTodos) {
-    localStorage.setItem(TODO_VERSION, JSON.stringify([]))
-    parsedTodos = []
-  } else {
-    parsedTodos = JSON.parse(localStorageTodos)
-  }
-
-  const [todos, setTodos] = useState(parsedTodos)
+  const [todos, saveTodos] = useLocalStorage(TODO_VERSION, []) // * Custom Hook
   const [searchValue, setSearchValue] = useState('')
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length // * Shortcut for conditional true
@@ -31,11 +23,6 @@ function App() {
     searchedTodos = todos
   } else {
     searchedTodos = todos.filter((todo) => todo.text.toLowerCase().includes(searchValue.toLowerCase()))
-  }
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem(TODO_VERSION, JSON.stringify(newTodos))
-    setTodos(newTodos)
   }
 
   const handleCompleted = (id) => {
