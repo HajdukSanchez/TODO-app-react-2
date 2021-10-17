@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Message, TodoContext, Modal } from './components'
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Message, TodoContext, Modal, TodoForm } from './components'
 
 function App() {
   const { error, loading, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal } = useContext(TodoContext)
@@ -16,7 +16,11 @@ function App() {
           <TodoItem key={todo.id} text={todo.text} completed={todo.completed} handleComplete={() => handleCompleted(todo.id)} handleDelete={() => handleDelete(todo.id)} />
         ))}
       </TodoList>
-      {!!openModal && <Modal></Modal>}
+      {!!openModal && (
+        <Modal>
+          <TodoForm />
+        </Modal>
+      )}
       <CreateTodoButton />
     </>
   )

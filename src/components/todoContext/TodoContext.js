@@ -33,10 +33,20 @@ function TodoProvider({ children }) {
     saveTodos(newTodos)
   }
 
+  const handleAdd = (text) => {
+    const newTodos = [...todos]
+    newTodos.push({
+      id: totalTodos + 1,
+      completed: false,
+      text,
+    })
+    saveTodos(newTodos)
+  }
+
   // * The values are the states that we want to share in our application
   return (
     <TodoContext.Provider
-      value={{ loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal }}>
+      value={{ loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal, handleAdd }}>
       {children}
     </TodoContext.Provider>
   )

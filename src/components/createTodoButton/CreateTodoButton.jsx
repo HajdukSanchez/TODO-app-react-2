@@ -7,7 +7,8 @@ const CreateTodoButton = () => {
   const { openModal, setOpenModal } = useContext(TodoContext)
 
   const handleClick = () => {
-    setOpenModal(!openModal)
+    // * All the states has this variables for make process with our previous state without using the variable name
+    setOpenModal((prevState) => !prevState)
   }
 
   return (

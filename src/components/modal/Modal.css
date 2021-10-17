@@ -3,6 +3,7 @@
   inset: 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: #00000080;
+  align-items: flex-start;
+  padding-top: 10rem;
+  background-color: #000000b5;
 }

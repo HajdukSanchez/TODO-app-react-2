@@ -1,10 +1,11 @@
 .CreateTodoButton {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  align-self: flex-end;
   padding: 10px;
-  font-family: sans-serif;
   color: white;
   background-color: #6178ff;
   border: 1px solid #0024ff;
