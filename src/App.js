@@ -9,9 +9,9 @@ function App() {
       <TodoCounter />
       <TodoSearch />
       <TodoList>
-        {error && <TodoError text={'An error occurred'} />}
-        {loading && <TodoLoading text={'Loading...'} />}
-        {!loading && !searchedTodos.length && <TodoEmpty text={'Create your first TODO !'} />}
+        {error && <TodoError />}
+        {loading && <TodoLoading />}
+        {!loading && !searchedTodos.length && <TodoEmpty />}
         {searchedTodos.map((todo) => (
           <TodoItem key={todo.id} text={todo.text} completed={todo.completed} handleComplete={() => handleCompleted(todo.id)} handleDelete={() => handleDelete(todo.id)} />
         ))}
