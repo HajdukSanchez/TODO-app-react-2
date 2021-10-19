@@ -1,0 +1,42 @@
+.TodoLoading__Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 10px;
+  border-radius: 10px;
+  box-shadow: 3px 2px 21px -10px rgba(0, 0, 0, 0.75);
+}
+
+.TodoLoading__Text {
+  width: 80%;
+  text-align: left;
+  overflow-wrap: anywhere;
+  color: transparent;
+}
+
+.TodoLoading__Button {
+  padding: 1rem;
+  border-radius: 100%;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+
+.TodoLoading__Container,
+.TodoLoading__Button {
+  background: linear-gradient(90deg, rgba(250, 250, 250, 1), rgb(230, 230, 230));
+  background-size: 400% 400%;
+  animation: loadingAnimation 3s ease-in-out infinite;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

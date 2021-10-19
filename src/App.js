@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Message, TodoContext, Modal, TodoForm } from './components'
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, TodoContext, Modal, TodoForm, TodoError, TodoLoading, TodoEmpty } from './components'
 
 function App() {
   const { error, loading, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal } = useContext(TodoContext)
@@ -9,9 +9,9 @@ function App() {
       <TodoCounter />
       <TodoSearch />
       <TodoList>
-        {error && <Message text={'An error occurred'} />}
-        {loading && <Message text={'Loading...'} />}
-        {!loading && !searchedTodos.length && <Message text={'Create your first TODO !'} />}
+        {error && <TodoError text={'An error occurred'} />}
+        {loading && <TodoLoading text={'Loading...'} />}
+        {!loading && !searchedTodos.length && <TodoEmpty text={'Create your first TODO !'} />}
         {searchedTodos.map((todo) => (
           <TodoItem key={todo.id} text={todo.text} completed={todo.completed} handleComplete={() => handleCompleted(todo.id)} handleDelete={() => handleDelete(todo.id)} />
         ))}
