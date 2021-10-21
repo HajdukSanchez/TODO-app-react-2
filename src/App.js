@@ -1,13 +1,27 @@
 import React, { useContext } from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, TodoContext, Modal, TodoForm, TodoError, TodoLoading, TodoEmpty } from './components'
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, TodoContext, Modal, TodoForm, TodoError, TodoLoading, TodoEmpty, TodoHeader } from './components'
 
 function App() {
-  const { error, loading, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal } = useContext(TodoContext)
+  const {
+    error,
+    loading,
+    searchedTodos,
+    handleCompleted,
+    handleDelete,
+    openModal,
+    setOpenModal,
+    totalTodos: total,
+    completedTodos: completed,
+    searchValue,
+    setSearchValue,
+  } = useContext(TodoContext)
 
   return (
     <>
-      <TodoCounter />
-      <TodoSearch />
+      <TodoHeader>
+        <TodoCounter completed={completed} total={total} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      </TodoHeader>
       <TodoList>
         {error && <TodoError />}
         {loading && <TodoLoading />}
