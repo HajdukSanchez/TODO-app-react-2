@@ -1,12 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import { TodoProvider } from './components'
+import { App } from './App'
 
-ReactDOM.render(
-  <TodoProvider>
-    <App />
-  </TodoProvider>,
-  document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))

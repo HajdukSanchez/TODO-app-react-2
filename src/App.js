@@ -1,7 +1,8 @@
-import React, { useContext } from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, TodoContext, Modal, TodoForm, TodoError, TodoLoading, TodoEmpty, TodoHeader } from './components'
+import React from 'react'
+import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Modal, TodoForm, TodoError, TodoLoading, TodoEmpty, TodoHeader } from './components'
+import { useTodos } from './hooks/useTodos'
 
-function App() {
+const App = () => {
   const {
     error,
     loading,
@@ -14,7 +15,8 @@ function App() {
     completedTodos: completed,
     searchValue,
     setSearchValue,
-  } = useContext(TodoContext)
+    handleAdd,
+  } = useTodos()
 
   return (
     <>
@@ -32,12 +34,12 @@ function App() {
       </TodoList>
       {!!openModal && (
         <Modal>
-          <TodoForm />
+          <TodoForm handleAdd={handleAdd} />
         </Modal>
       )}
-      <CreateTodoButton />
+      <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} />
     </>
   )
 }
 
-export default App
+export { App }

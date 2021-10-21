@@ -1,10 +1,9 @@
-import React, { createContext, useState } from 'react'
-import { useLocalStorage } from '../../lib/useLocalStorage'
+import React, { useState } from 'react'
+import { useLocalStorage } from './useLocalStorage'
 
 const TODO_VERSION = 'TODOS_V1'
-const TodoContext = createContext() // * For create a context
 
-function TodoProvider({ children }) {
+function useTodos() {
   const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage(TODO_VERSION, []) // * Custom Hook
   const [searchValue, setSearchValue] = useState('')
   const [openModal, setOpenModal] = useState(false)
@@ -43,13 +42,7 @@ function TodoProvider({ children }) {
     saveTodos(newTodos)
   }
 
-  // * The values are the states that we want to share in our application
-  return (
-    <TodoContext.Provider
-      value={{ loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal, handleAdd }}>
-      {children}
-    </TodoContext.Provider>
-  )
+  return { loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal, handleAdd }
 }
 
-export { TodoProvider, TodoContext }
+export { useTodos }

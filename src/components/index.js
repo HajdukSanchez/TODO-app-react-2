@@ -1,4 +1,3 @@
-export { TodoProvider, TodoContext } from './todoContext/TodoContext'
 export { TodoCounter } from './todoCounter/TodoCounter'
 export { TodoSearch } from './todoSearch/TodoSearch'
 export { TodoList } from './todoList/TodoList'

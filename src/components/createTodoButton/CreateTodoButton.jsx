@@ -1,11 +1,8 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
-import { TodoContext } from '..'
 import './CreateTodoButton.css'
 
-const CreateTodoButton = () => {
-  const { openModal, setOpenModal } = useContext(TodoContext)
-
+const CreateTodoButton = ({ openModal, setOpenModal }) => {
   const handleClick = () => {
     // * All the states has this variables for make process with our previous state without using the variable name
     setOpenModal((prevState) => !prevState)
