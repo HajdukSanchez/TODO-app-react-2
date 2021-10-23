@@ -2,3 +2,7 @@
   font-size: 24px;
   text-align: center;
 }
+
+.Title--loading {
+  opacity: 0.25;
+}

@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <>
-      <TodoHeader>
+      <TodoHeader loading={loading}>
         <TodoCounter completed={completed} total={total} />
         <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
       </TodoHeader>
@@ -44,7 +44,7 @@ const App = () => {
           <TodoForm handleAdd={handleAdd} />
         </Modal>
       )}
-      <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} />
+      <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} loading={loading} />
     </>
   )
 }
