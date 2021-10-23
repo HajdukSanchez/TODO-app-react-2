@@ -1,4 +1,8 @@
 .TodoEmpty {
   text-align: center;
   font-size: 20px;
+  color: gray;
+}
+.TodoEmpty--bold {
+  font-weight: bold;
 }

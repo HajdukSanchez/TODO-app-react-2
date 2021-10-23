@@ -28,13 +28,17 @@ const App = () => {
         error={error}
         loading={loading}
         searchedTodos={searchedTodos}
+        total={total}
         onError={() => <TodoError />}
         onLoading={() => <TodoLoading />}
-        onEmpty={() => <TodoEmpty />}
-        render={(todo) => (
+        onEmpty={() => <TodoEmpty text={'Nothing to show'} />}
+        onEmptySearch={() => <TodoEmpty text={'No matches with: '} search={searchValue} />}
+        // render={}
+      >
+        {(todo) => (
           <TodoItem key={todo.id} text={todo.text} completed={todo.completed} handleComplete={() => handleCompleted(todo.id)} handleDelete={() => handleDelete(todo.id)} />
         )}
-      />
+      </TodoList>
       {!!openModal && (
         <Modal>
           <TodoForm handleAdd={handleAdd} />
