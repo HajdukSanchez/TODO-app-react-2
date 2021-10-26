@@ -6,8 +6,8 @@ const numberOfLoaders = [1, 2, 3, 4] // ? For increase or decrees the loaders th
 const TodoLoading = () => {
   return (
     <>
-      {numberOfLoaders.map(() => (
-        <div className='TodoLoading__Container'>
+      {numberOfLoaders.map((index) => (
+        <div className='TodoLoading__Container' key={index}>
           <span className='TodoLoading__Button'></span>
           <p className='TodoLoading__Text'>Loading...</p>
           <span className='TodoLoading__Button'></span>

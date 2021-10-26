@@ -1,5 +1,18 @@
 import React from 'react'
-import { TodoCounter, TodoSearch, TodoList, TodoItem, CreateTodoButton, Modal, TodoForm, TodoError, TodoLoading, TodoEmpty, TodoHeader } from './components'
+import {
+  TodoCounter,
+  TodoSearch,
+  TodoList,
+  TodoItem,
+  CreateTodoButton,
+  Modal,
+  TodoForm,
+  TodoError,
+  TodoLoading,
+  TodoEmpty,
+  TodoHeader,
+  ChangeAlterWithStorageListener,
+} from './components'
 import { useTodos } from './hooks/useTodos'
 
 const App = () => {
@@ -45,6 +58,7 @@ const App = () => {
         </Modal>
       )}
       <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} loading={loading} />
+      <ChangeAlterWithStorageListener />
     </>
   )
 }
