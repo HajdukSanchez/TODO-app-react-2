@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { useLocalStorage } from './useLocalStorage'
-
-const TODO_VERSION = 'TODOS_V1'
+import { TODO_VERSION } from '../types/localStorageTypes'
 
 function useTodos() {
-  const { item: todos, saveItem: saveTodos, loading, error } = useLocalStorage(TODO_VERSION, []) // * Custom Hook
+  const { item: todos, saveItem: saveTodos, loading, error, synchronize: synchronizeTodos } = useLocalStorage(TODO_VERSION, []) // * Custom Hook
   const [searchValue, setSearchValue] = useState('')
   const [openModal, setOpenModal] = useState(false)
 
@@ -42,7 +41,21 @@ function useTodos() {
     saveTodos(newTodos)
   }
 
-  return { loading, error, totalTodos, completedTodos, searchValue, setSearchValue, searchedTodos, handleCompleted, handleDelete, openModal, setOpenModal, handleAdd }
+  return {
+    loading,
+    error,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    searchedTodos,
+    handleCompleted,
+    handleDelete,
+    openModal,
+    setOpenModal,
+    handleAdd,
+    synchronizeTodos,
+  }
 }
 
 export { useTodos }

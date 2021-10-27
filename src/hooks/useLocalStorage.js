@@ -4,6 +4,7 @@ const useLocalStorage = (itemName, initialValue) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [item, setItem] = useState(initialValue)
+  const [synchronizedItem, setSynchronizedItem] = useState(false)
 
   // * We simulate an API call
   useEffect(() => {
@@ -21,12 +22,13 @@ const useLocalStorage = (itemName, initialValue) => {
 
         setItem(parsedItem)
         setLoading(false)
+        setSynchronizedItem(true)
       } catch (error) {
         setError(true)
         console.error(error)
       }
     }, 2000)
-  }, [])
+  }, [synchronizedItem])
 
   const saveItem = (newItem) => {
     try {
@@ -38,11 +40,17 @@ const useLocalStorage = (itemName, initialValue) => {
     }
   }
 
+  const synchronize = () => {
+    setLoading(true)
+    setSynchronizedItem(false)
+  }
+
   return {
     item,
     saveItem,
     loading,
     error,
+    synchronize,
   }
 }
 

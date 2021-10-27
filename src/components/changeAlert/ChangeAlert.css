@@ -1,0 +1,36 @@
+.ChangeAlter {
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  background-color: #ffffc9;
+  border-radius: 0.6rem;
+  border: 1px orange;
+  border-style: dashed;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.ChangeAlter:hover {
+  background-color: #ffffaa;
+}
+
+.ChangeAlter__text {
+  margin: 0;
+  color: orange;
+}
+
+.ChangeAlter__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  color: orange;
+  font-size: 1.3rem;
+}
+
+.ChangeAlter__button svg {
+  transform: rotate(0deg);
+  transition: 0.3s;
+}
+.ChangeAlter:hover .ChangeAlter__button svg {
+  transform: rotate(180deg);
+}

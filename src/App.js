@@ -29,6 +29,7 @@ const App = () => {
     searchValue,
     setSearchValue,
     handleAdd,
+    synchronizeTodos,
   } = useTodos()
 
   return (
@@ -54,11 +55,11 @@ const App = () => {
       </TodoList>
       {!!openModal && (
         <Modal>
-          <TodoForm handleAdd={handleAdd} />
+          <TodoForm handleAdd={handleAdd} setOpenModal={setOpenModal} />
         </Modal>
       )}
       <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} loading={loading} />
-      <ChangeAlterWithStorageListener />
+      <ChangeAlterWithStorageListener synchronizeTodos={synchronizeTodos} />
     </>
   )
 }

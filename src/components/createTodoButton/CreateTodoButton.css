@@ -26,6 +26,10 @@
   transform: rotate(0);
   transition: 0.3s;
 }
+.CreateTodoButton:hover svg {
+  transform: rotate(180deg);
+}
+
 .CreateTodoButton.Close svg {
   transform: rotate(45deg);
 }
