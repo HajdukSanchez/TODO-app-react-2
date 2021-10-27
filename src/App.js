@@ -11,8 +11,9 @@ import {
   TodoLoading,
   TodoEmpty,
   TodoHeader,
-  ChangeAlterWithStorageListener,
+  // ChangeAlterWithStorageListener,
 } from './components'
+import { ChangeAlter } from './components/changeAlert/ChangeAlter'
 import { useTodos } from './hooks/useTodos'
 
 const App = () => {
@@ -59,7 +60,8 @@ const App = () => {
         </Modal>
       )}
       <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal} loading={loading} />
-      <ChangeAlterWithStorageListener synchronizeTodos={synchronizeTodos} />
+      {/* <ChangeAlterWithStorageListener synchronizeTodos={synchronizeTodos} /> */}
+      <ChangeAlter synchronizeTodos={synchronizeTodos} />
     </>
   )
 }

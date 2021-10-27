@@ -1,9 +1,11 @@
 import React from 'react'
 import './ChangeAlert.css'
-import { WithStorageListener } from './withStorageListener'
+// import { WithStorageListener } from './withStorageListener'
+import { useStorageListener } from '../../hooks/useStorageListener'
 import { AiOutlineReload } from 'react-icons/ai'
 
-function ChangeAlter({ show, toggleShow }) {
+const ChangeAlter = ({ synchronizeTodos }) => {
+  const { storageChange: show, toggleShow } = useStorageListener(synchronizeTodos)
   if (show) {
     return (
       <div className='ChangeAlter' onClick={() => toggleShow(false)}>
@@ -18,6 +20,6 @@ function ChangeAlter({ show, toggleShow }) {
   }
 }
 
-const ChangeAlterWithStorageListener = WithStorageListener(ChangeAlter)
-
-export { ChangeAlterWithStorageListener }
+// const ChangeAlterWithStorageListener = WithStorageListener(ChangeAlter)
+// export { ChangeAlterWithStorageListener }
+export { ChangeAlter }
