@@ -8,7 +8,7 @@ const TodoList = ({ error, onError, loading, onLoading, searchedTodos, onEmpty, 
       {error && onError()}
       {loading && onLoading()}
       {!total && !loading && onEmpty()}
-      {searchedTodos?.map(renderType)} {/* //? Render function or render props, no matter what */}
+      {!loading && !error && searchedTodos?.map(renderType)} {/* //? Render function or render props, no matter what */}
       {!!total && !searchedTodos?.length && onEmptySearch()}
     </section>
   )
